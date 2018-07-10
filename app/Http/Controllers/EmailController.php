@@ -7,24 +7,23 @@ use Illuminate\Support\Facades\Mail;
 
 class EmailController extends Controller
 {
+    private $sender=[];
     public function contact(Request $req){
         return view('contactUs');
     }
 
     public function sendEmail(Request $req){
-        $title = $req->input('subject');
-        $content = $req->input('content');
-        $sender = $req->input('email');
+        $this->sender['subject'] = $req->input('subject');
+        $this->sender['content'] = $req->input('content');
+        $this->sender['email'] = $req->input('email');
 
-        Mail::send('emails.send', ['title' => $title, 'content' => $content], function ($message)
-        {
-
-            $message->from();
-
-            $message->to(env(MAIL_USERNAME));
-
+        Mail::raw($this->sender['content'], function($msg){
+            $msg->subject($this->sender['subject'])
+                ->to(env('MAIL_USERNAME'))
+                ->from($this->sender['email']);
         });
 
-        return response()->json(['message' => 'Request completed']);
+        return redirect()-> route('contact');
+
     }
 }
