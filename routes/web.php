@@ -15,12 +15,12 @@ Route::get('/', function (){
     $tasks = DB::table('tasks')->get();
 
     return view('welcome', compact('tasks', $tasks));
-});
+}) ->name('welcome');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/contact', 'EmailController@contact') ->name('contact');
+Route::get('/contact', 'ContactController@show') ->name('contact');
 
-Route::post('/sendEmail', 'EmailController@sendEmail');
+Route::post('/contact', 'ContactController@mailToAdmin');

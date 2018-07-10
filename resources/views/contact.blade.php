@@ -8,7 +8,7 @@
                     <div class="card-header">{{ __('Contact Us') }}</div>
 
                     <div class="card-body">
-                        <form id="contact" method="POST" action="/sendEmail" aria-label="{{ __('Register') }}">
+                        <form id="contact" method="POST" action="/contact" aria-label="{{ __('Register') }}">
                             @csrf
 
                             <div class="form-group row">
@@ -35,7 +35,7 @@
                                 <label for="content" class="col-md-4 col-form-label text-md-right">{{ __('Content') }}</label>
 
                                 <div class="col-md-6">
-                                    <textarea name="content" form="contact" class="form-control" required></textarea>
+                                    <textarea name="content" class="form-control" required></textarea>
                                 </div>
                             </div>
 
@@ -47,6 +47,8 @@
                                     </button>
                                 </div>
                             </div>
+
+
                         </form>
                     </div>
                 </div>
