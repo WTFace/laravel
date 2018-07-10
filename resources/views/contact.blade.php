@@ -48,7 +48,11 @@
                                 </div>
                             </div>
 
-
+                            <div class="form-group row" style="justify-content: center">
+                                @if ($success)
+                                    <div class="alert alert-info row">{{$success}}</div>
+                                @endif
+                            </div>
                         </form>
                     </div>
                 </div>

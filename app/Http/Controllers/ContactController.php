@@ -11,12 +11,14 @@ class ContactController extends Controller
 {
     public function show()
     {
-        return view('contact');
+        $success='';
+        return view('contact', compact('success', $success));
     }
 
     public function mailToAdmin(ContactFormRequest $message, Admin $admin)
     {
         $admin->notify(new InboxMessage($message));
-        return redirect()->back();
+        $success='Thanks for the message!! we will ignore it';
+        return view('/contact', compact('success', $success));
     }
 }
