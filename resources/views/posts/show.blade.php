@@ -11,7 +11,9 @@
         <a href="" class="profile"> {{$post->user->name}}</a>
         
         <br>
-        <p class="post-body">{{$post->body}}</p>
+        <p>
+        	<pre class="post-body">{{$post->body}}</pre>
+        </p>
     </div>
 </div>
 
