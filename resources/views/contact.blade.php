@@ -8,7 +8,7 @@
                     <div class="card-header">{{ __('Contact Us') }}</div>
 
                     <div class="card-body">
-                        <form id="contact" method="POST" action="/contact" aria-label="{{ __('Register') }}">
+                        <form id="contact" method="POST" action="/contact">
                             @csrf
 
                             <div class="form-group row">

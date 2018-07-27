@@ -10,17 +10,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function (){
     $tasks = DB::table('tasks')->get();
-
     return view('welcome', compact('tasks', $tasks));
 }) ->name('welcome');
 
+Route::get('/register', 'RegistrationController@create');
+Route::post('/register', 'RegistrationController@store');
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index');
 
 Route::get('/contact', 'ContactController@show') ->name('contact');
-
 Route::post('/contact', 'ContactController@mailToAdmin');

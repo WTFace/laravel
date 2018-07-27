@@ -19,6 +19,6 @@ class ContactController extends Controller
     {
         $admin->notify(new InboxMessage($message));
         $success='Thanks for the message!! we will ignore it';
-        return view('/contact', compact('success', $success));
+        return view('contact', compact('success', $success));
     }
 }
