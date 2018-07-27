@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="jumbotron text-center">
+    <section class="jumbotron text-center col-md-8">
         <div class="container">
             <h1 class="jumbotron-heading">pigglet</h1>
             <p class="lead text-muted">Welcome retarded publishers</p>
@@ -13,12 +13,12 @@
     </section>
     
         
-    <div class="container">
+    <div class="container col-md-8">
         <ol class="post-title">
             @foreach( $posts as $post)
             <li>
                 <a class="h4" href="/post/{{$post->id}}">{{$post->title}}</a>
-                <span class="ml-auto text-muted"> {{ $post->updated_at->diffForHumans()}}
+                <span class="text-muted date-right"> {{ $post->updated_at->diffForHumans()}}
                 </span>
             </li>
             @endforeach
