@@ -10,7 +10,6 @@
                 <div class="card-body">
                     <form method="POST" action="/post/store">
                         @csrf
-                        <input id="user_id" type="hidden"  name="user_id" value="{{Auth::user()->id}}">
                         <div class="form-group row">
                             <label for="title" class="col-md-3 col-form-label text-md-right">{{ __('Title') }}</label>
 
