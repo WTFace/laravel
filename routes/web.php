@@ -10,10 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function (){
-    $tasks = DB::table('tasks')->get();
-    return view('welcome', compact('tasks', $tasks));
-}) ->name('welcome');
+Route::get('/','PostController@index');
+Route::get('/post/create','PostController@create');
+Route::post('/post/store','PostController@store');
+Route::get('/post/{post}','PostController@show');
 
 Route::get('/register', 'RegistrationController@create');
 Route::post('/register', 'RegistrationController@store');
