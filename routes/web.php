@@ -21,8 +21,11 @@ Route::post('/register', 'RegistrationController@store');
 Route::get('/login', 'SessionsController@create')->name('login');
 Route::post('/login', 'SessionsController@store');
 Route::post('/logout', 'SessionsController@destroy');
+Route::get('/password/request', 'Auth\ForgotPasswordController@showLinkRequestForm');
+Route::post('/password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
+Route::get('/password/reset', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 
-Auth::routes();
+//Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
